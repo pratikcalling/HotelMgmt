@@ -4,6 +4,7 @@
     import org.springframework.stereotype.Service;
 
     import java.time.LocalDate;
+    import java.util.Arrays;
     import java.util.LinkedList;
     import java.util.List;
 
@@ -38,6 +39,15 @@
         }
 
         public List<Item> getItems(Hotel hotel){
-            return new LinkedList<>();
+            return Arrays.asList(Item.builder()
+                    .name("Cheese Masala Dosa")
+                    .price(70)
+                    .description("A Taste of Cheese...")
+                    .build(),
+                    Item.builder()
+                            .name("Corn Paneer Masala Dosa")
+                            .price(70)
+                            .description("A Taste of Corn with Yummy Paneer...")
+                            .build());
         }
     }
