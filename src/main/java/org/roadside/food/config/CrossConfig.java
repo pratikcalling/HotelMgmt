@@ -9,7 +9,8 @@ public class CrossConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000") // Add your frontend URL here
+                .allowedOriginPatterns("*")
+                //.allowedOrigins("http://localhost:3000") // Add your frontend URL here
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")
                 .allowCredentials(true);

@@ -1,40 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function Menu() {
-  const [menuItems, setMenuItems] = useState([]);
-  const [loading, setLoading] = useState(true);
+const Menu = () => {
+    const [menuItems, setMenuItems] = useState([]);
 
-  useEffect(() => {
-    axios.get('http://localhost:8080/menu')
-      .then(response => {
-        setMenuItems(response.data.items);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching menu:', error);
-        setLoading(false);
-      });
-  }, []);
+    useEffect(() => {
+        axios.get('http://localhost:8080/menu')
+            .then(response => {
+                setMenuItems(response.data.items);
+            })
+            .catch(error => {
+                console.error('Error fetching menu:', error);
+            });
+    }, []);
 
-  return (
-    <div>
-      <h2>Menu</h2>
-      {loading ? (
-        <p>Loading menu...</p>
-      ) : (
-        menuItems.length === 0 ? (
-          <p>No items available</p>
-        ) : (
-          <ul>
-            {menuItems.map(item => (
-              <li key={item.id}>{item.name}</li>
-            ))}
-          </ul>
-        )
-      )}
-    </div>
-  );
-}
+    return (
+        <div>
+            <h2>Menu</h2>
+            {menuItems.length > 0 ? (
+                <ul>
+                    {menuItems.map(item => (
+                        <li key={item.id}>
+                            <h3>{item.name}</h3>
+                            <p>{item.description}</p>
+                            <p>Price: ${item.price.toFixed(2)}</p>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>Loading menu...</p>
+            )}
+        </div>
+    );
+};
 
 export default Menu;
