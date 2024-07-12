@@ -3,8 +3,8 @@ package org.roadside.food.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -15,6 +15,6 @@ public class Hotel {
     private UUID id = UUID.randomUUID();
     String name;
     Locality branch;
-    User owner;
+    Set<User> owners;
     Cusine cusine;
 }

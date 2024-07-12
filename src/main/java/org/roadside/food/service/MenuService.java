@@ -4,22 +4,30 @@
     import org.springframework.stereotype.Service;
 
     import java.time.LocalDate;
-    import java.util.Arrays;
-    import java.util.LinkedList;
-    import java.util.List;
+    import java.util.*;
 
     @Service
     public class MenuService {
         public Menu generate99DosaMenu(){
-            User owner = User.builder()
+            User owner1 = User.builder()
                     .email("kumar@gmail.com")
-                    .firstName("M.")
-                    .lastName("Kumar")
+                    .firstName("Kumar")
+                    .lastName("M.")
+                    .phoneNumber("+91 9900926608")
                     .dob(LocalDate.of(1990,11,23))
                     .build();
 
+            User owner2 = User.builder()
+                    .email("puneeth@gmail.com")
+                    .firstName("Puneeth")
+                    .lastName("K.")
+                    .dob(LocalDate.of(1990,11,23))
+                    .build();
+
+            Set<User> owners = new HashSet<>(Arrays.asList(owner1,owner2));
+
             Hotel hotel = Hotel.builder()
-                    .owner(owner)
+                    .owners(owners)
                     .branch(Locality.HSR)
                     .name("99 Variety Dosa")
                     .cusine(Cusine.SOUTH_INDIAN)
@@ -33,6 +41,7 @@
 
             return Menu.builder()
                     .items(items)
+                    .logo(Optional.of("dosa-trans.png"))
                     .hotel(hotel)
                     .note("It takes around 20 minutes to prepare and order")
                     .build();
@@ -43,11 +52,43 @@
                     .name("Cheese Masala Dosa")
                     .price(70)
                     .description("A Taste of Cheese...")
+                    .category("Cheese Dosas")
                     .build(),
                     Item.builder()
                             .name("Corn Paneer Masala Dosa")
                             .price(70)
                             .description("A Taste of Corn with Yummy Paneer...")
+                            .category("Paneer Dosas")
+                            .build(),
+                    Item.builder()
+                            .name("Corn Paneer Masala Dosa")
+                            .price(70)
+                            .description("A Taste of Corn with Yummy Paneer...")
+                            .category("Paneer Dosas")
+                            .build(),
+                    Item.builder()
+                            .name("Corn Paneer Cheese Masala Dosa")
+                            .price(70)
+                            .description("A Taste of Corn with Yummy Paneer...")
+                            .category("Paneer Cheese Dosas")
+                            .build(),
+                    Item.builder()
+                            .name("Corn Paneer Masala Dosa")
+                            .price(70)
+                            .description("A Taste of Corn with Yummy Paneer...")
+                            .category("Paneer Dosas")
+                            .build(),
+                    Item.builder()
+                            .name("Corn Cheese Paneer Masala Dosa")
+                            .price(70)
+                            .description("A Taste of Corn with Yummy Paneer...")
+                            .category("Cheese Dosas")
+                            .build(),
+                    Item.builder()
+                            .name("Pav Bhaji Masala Dosa")
+                            .price(70)
+                            .description("A Taste of Corn with Yummy Paneer...")
+                            .category("Special Dosas")
                             .build());
         }
     }

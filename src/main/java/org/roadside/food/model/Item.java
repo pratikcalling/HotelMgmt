@@ -3,7 +3,6 @@ package org.roadside.food.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 import java.util.Set;
@@ -20,4 +19,5 @@ public class Item {
     double price;
     Optional<String> imageUrlOpt;
     Set<Ingredient> ingredients;
+    String category;
 }
