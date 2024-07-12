@@ -3,7 +3,11 @@ window.onload = function() {
 };
 
 function fetchMenuItems() {
-    fetch('http://localhost:8080/menu')
+    const hostname = window.location.hostname; // Replace with your logic to get hostname
+    const apiBaseUrl = `http://${hostname}:8080`;
+
+    fetch(`json/menu-response.json`)
+    //fetch(`${apiBaseUrl}/menu`)
         .then(response => response.json())
         .then(data => {
             // Update hotel name in the header
@@ -11,28 +15,33 @@ function fetchMenuItems() {
             hotelNameElement.textContent = data.hotel.name;
 
             // Update hotel logo in the header if data.logo exists
-            const hotelLogoLeft = document.getElementById('hotel-logo-left');
-            const hotelLogoRight = document.getElementById('hotel-logo-right');
+            const leftLogo = document.getElementById('title-logo-left');
+            const rightLogo = document.getElementById('title-logo-right');
 
-            if (data.logo) {
-                hotelLogoLeft.src = `./images/${data.logo}`; // Adjust path based on your project structure
-                hotelLogoLeft.style.display = 'inline-block'; // Show the logo
-                hotelLogoLeft.style.position = 'absolute'; // Position left logo absolutely
-                hotelLogoLeft.style.left = '10px'; // Adjust left position as needed
-                hotelLogoLeft.style.top = '10px'; // Adjust top position as needed
-                hotelLogoLeft.style.width = 'auto'; // Adjust width as needed
-                hotelLogoLeft.style.height = '200px'; // Adjust height as needed
+            if (data.hotel.hotelLogoOpt) {
+                leftLogo.src = `./images/${data.hotel.hotelLogoOpt}`; // Adjust path based on your project structure
+                leftLogo.style.display = 'inline-block'; // Show the logo
+                leftLogo.style.position = 'absolute'; // Position left logo absolutely
+                leftLogo.style.left = '10px'; // Adjust left position as needed
+                leftLogo.style.top = '10px'; // Adjust top position as needed
+                leftLogo.style.width = 'auto'; // Adjust width as needed
+                leftLogo.style.height = '200px'; // Adjust height as needed
+            }
+            else {
+                leftLogo.style.display = 'none'; // Hide the logo if no data.logo
+            }
 
-                hotelLogoRight.src = `./images/${data.logo}`; // Adjust path based on your project structure
-                hotelLogoRight.style.display = 'inline-block'; // Show the logo
-                hotelLogoRight.style.position = 'absolute'; // Position right logo absolutely
-                hotelLogoRight.style.right = '10px'; // Adjust right position as needed
-                hotelLogoRight.style.top = '10px'; // Adjust top position as needed
-                hotelLogoRight.style.width = 'auto'; // Adjust width as needed
-                hotelLogoRight.style.height = '200px'; // Adjust height as needed
-            } else {
-                hotelLogoLeft.style.display = 'none'; // Hide the logo if no data.logo
-                hotelLogoRight.style.display = 'none'; // Hide the logo if no data.logo
+            if (data.dishLogoOpt) {
+                rightLogo.src = `./images/${data.dishLogoOpt}`; // Adjust path based on your project structure
+                rightLogo.style.display = 'inline-block'; // Show the logo
+                rightLogo.style.position = 'absolute'; // Position right logo absolutely
+                rightLogo.style.right = '10px'; // Adjust right position as needed
+                rightLogo.style.top = '20px'; // Adjust top position as needed
+                rightLogo.style.width = 'auto'; // Adjust width as needed
+                rightLogo.style.height = '200px'; // Adjust height as needed
+            }
+            else {
+                rightLogo.style.display = 'none'; // Hide the logo if no data.logo
             }
 
             const menuItems = data.items;

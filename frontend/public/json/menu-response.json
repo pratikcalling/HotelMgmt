@@ -1,0 +1,94 @@
+{
+  "hotel": {
+    "id": "2621e313-6f9d-40c0-a121-cbc5aa374305",
+    "name": "Sri Durga 99 Variety Dosa",
+    "branch": "HSR",
+    "owners": [
+      {
+        "id": "3f908d33-7d4c-4f56-a027-2e85858401ae",
+        "email": "kumar@gmail.com",
+        "phoneNumber": "+91 9900926608",
+        "firstName": "Kumar",
+        "lastName": "M.",
+        "dob": "1990-11-23"
+      },
+      {
+        "id": "0b27f060-f35b-4061-b8b5-156117ddd636",
+        "email": "puneeth@gmail.com",
+        "phoneNumber": null,
+        "firstName": "Puneeth",
+        "lastName": "K.",
+        "dob": "1990-11-23"
+      }
+    ],
+    "cusine": "SOUTH_INDIAN",
+    "hotelLogoOpt": "durga-ma-trans.png"
+  },
+  "dishLogoOpt": "dosa-trans.png",
+  "items": [
+    {
+      "id": "71eca39c-08a3-4b79-aa40-ae32e1ea7e13",
+      "name": "Cheese Masala Dosa",
+      "description": "A Taste of Cheese...",
+      "price": 70.0,
+      "imageUrlOpt": null,
+      "ingredients": null,
+      "category": "Cheese Dosas"
+    },
+    {
+      "id": "338d66ad-0b32-4717-954c-0fe9f2e96ada",
+      "name": "Corn Paneer Masala Dosa",
+      "description": "A Taste of Corn with Yummy Paneer...",
+      "price": 70.0,
+      "imageUrlOpt": null,
+      "ingredients": null,
+      "category": "Paneer Dosas"
+    },
+    {
+      "id": "169d68cd-6201-4461-b5a1-af4a476b46b4",
+      "name": "Corn Paneer Masala Dosa",
+      "description": "A Taste of Corn with Yummy Paneer...",
+      "price": 70.0,
+      "imageUrlOpt": null,
+      "ingredients": null,
+      "category": "Paneer Dosas"
+    },
+    {
+      "id": "f522a56d-bf03-45e4-a87b-07e9f3c71d62",
+      "name": "Corn Paneer Cheese Masala Dosa",
+      "description": "A Taste of Corn with Yummy Paneer...",
+      "price": 70.0,
+      "imageUrlOpt": null,
+      "ingredients": null,
+      "category": "Paneer Cheese Dosas"
+    },
+    {
+      "id": "e791f222-4c90-498d-9005-dee6f7397c54",
+      "name": "Corn Paneer Masala Dosa",
+      "description": "A Taste of Corn with Yummy Paneer...",
+      "price": 70.0,
+      "imageUrlOpt": null,
+      "ingredients": null,
+      "category": "Paneer Dosas"
+    },
+    {
+      "id": "4faf2444-eee1-48ac-b52a-737ac576324b",
+      "name": "Corn Cheese Paneer Masala Dosa",
+      "description": "A Taste of Corn with Yummy Paneer...",
+      "price": 70.0,
+      "imageUrlOpt": null,
+      "ingredients": null,
+      "category": "Cheese Dosas"
+    },
+    {
+      "id": "bbac7372-f0aa-4f1a-b221-9a8b89ddbad6",
+      "name": "Pav Bhaji Masala Dosa",
+      "description": "A Taste of Corn with Yummy Paneer...",
+      "price": 70.0,
+      "imageUrlOpt": null,
+      "ingredients": null,
+      "category": "Special Dosas"
+    }
+  ],
+  "note": "It takes around 20 minutes to prepare and order"
+}

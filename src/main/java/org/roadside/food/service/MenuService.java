@@ -29,8 +29,9 @@
             Hotel hotel = Hotel.builder()
                     .owners(owners)
                     .branch(Locality.HSR)
-                    .name("99 Variety Dosa")
+                    .name("Sri Durga 99 Variety Dosa")
                     .cusine(Cusine.SOUTH_INDIAN)
+                    .hotelLogoOpt(Optional.of("durga-ma-trans.png"))
                     .build();
 
             return generateMenu(hotel);
@@ -41,7 +42,7 @@
 
             return Menu.builder()
                     .items(items)
-                    .logo(Optional.of("dosa-trans.png"))
+                    .dishLogoOpt(Optional.of("dosa-trans.png"))
                     .hotel(hotel)
                     .note("It takes around 20 minutes to prepare and order")
                     .build();

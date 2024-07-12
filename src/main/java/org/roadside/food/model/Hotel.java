@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
@@ -17,4 +18,5 @@ public class Hotel {
     Locality branch;
     Set<User> owners;
     Cusine cusine;
+    Optional<String> hotelLogoOpt;
 }

@@ -11,7 +11,7 @@ import java.util.Optional;
 public class Menu {
     @NonNull
     Hotel hotel;
-    Optional<String> logo;
+    Optional<String> dishLogoOpt;
     @NonNull
     List<Item> items;
     String note;
