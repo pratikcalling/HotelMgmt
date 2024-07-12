@@ -12,7 +12,7 @@
             User owner1 = User.builder()
                     .email("kumar@gmail.com")
                     .firstName("Kumar")
-                    .lastName("M.")
+                    .lastName("")
                     .phoneNumber("+91 9900926608")
                     .dob(LocalDate.of(1990,11,23))
                     .build();
@@ -20,7 +20,8 @@
             User owner2 = User.builder()
                     .email("puneeth@gmail.com")
                     .firstName("Puneeth")
-                    .lastName("K.")
+                    .lastName("")
+                    .phoneNumber("+91 7676074446")
                     .dob(LocalDate.of(1990,11,23))
                     .build();
 
@@ -42,9 +43,9 @@
 
             return Menu.builder()
                     .items(items)
-                    .dishLogoOpt(Optional.of("dosa-trans.png"))
+                    .dishLogoOpt(Optional.of("99-variety-dosa-vendor-trans.png"))
                     .hotel(hotel)
-                    .note("It takes around 20 minutes to prepare and order")
+                    .notes(Arrays.asList("\"To lose Patience is To Lose Battle\". Please wait for 20 mins once you order","\"There is no Planet-B\". Parcel Charges Extra: 5/-"))
                     .build();
         }
 

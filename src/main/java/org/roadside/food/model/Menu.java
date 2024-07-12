@@ -14,5 +14,5 @@ public class Menu {
     Optional<String> dishLogoOpt;
     @NonNull
     List<Item> items;
-    String note;
+    List<String> notes;
 }

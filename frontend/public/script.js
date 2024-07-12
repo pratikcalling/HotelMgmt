@@ -16,10 +16,10 @@ function fetchMenuItems() {
             hotelNameElement.textContent = data.hotel.name;
 
             // Update hotel logo in the header if data.logo exists
-            const leftLogo = document.getElementById('title-logo-left');
-            const rightLogo = document.getElementById('title-logo-right');
+            //const leftLogo = document.getElementById('title-logo-left');
+            const rightLogo = document.getElementById('title-logo-left');
 
-            if (data.hotel.hotelLogoOpt) {
+            /*if (data.hotel.hotelLogoOpt) {
                 leftLogo.src = `${imagePath}/${data.hotel.hotelLogoOpt}`; // Adjust path based on your project structure
                 leftLogo.style.display = 'inline-block'; // Show the logo
                 leftLogo.style.position = 'absolute'; // Position left logo absolutely
@@ -30,7 +30,7 @@ function fetchMenuItems() {
             }
             else {
                 leftLogo.style.display = 'none'; // Hide the logo if no data.logo
-            }
+            }*/
 
             if (data.dishLogoOpt) {
                 rightLogo.src = `${imagePath}/${data.dishLogoOpt}`; // Adjust path based on your project structure
@@ -95,13 +95,26 @@ function fetchMenuItems() {
 
             // Render owners in the footer
             renderOwners(data.hotel.owners);
+
+            // Display the notes
+            const notesElement = document.getElementById('notes');
+            notesElement.innerHTML = ''; // Clear existing notes
+            data.notes.forEach(note => {
+                const noteElement = document.createElement('div');
+                noteElement.classList.add('note');
+                noteElement.textContent = note;
+                notesElement.appendChild(noteElement);
+            });
         })
         .catch(error => console.error('Error fetching menu:', error));
 }
 
 function renderOwners(owners) {
-    const footer = document.querySelector('footer .owners-container');
-    footer.innerHTML = ''; // Clear previous content
+    const footerOwner = document.querySelector('footer .owners-container');
+    footerOwner.innerHTML = ''; // Clear previous content
+
+    const footerPoweredBy = document.querySelector('footer .powered-by-container');
+    footerPoweredBy.innerHTML = ''; // Clear previous content
 
     // Render owner details
     owners.forEach(owner => {
@@ -110,12 +123,12 @@ function renderOwners(owners) {
         ownerInfo.innerHTML = `
                     <p><strong>${owner.firstName} ${owner.lastName}</strong> ${owner.phoneNumber ? `(M) ${owner.phoneNumber}` : ''}</p>
                 `;
-        footer.appendChild(ownerInfo);
+        footerOwner.appendChild(ownerInfo);
     });
 
-    // Add "Powered by to the footer
+    // Add "Powered by" to the footer
     const poweredBy = document.createElement('div');
     poweredBy.classList.add('powered-by');
     poweredBy.innerHTML = `<p>Powered by Pratik</p>`;
-    document.querySelector('footer').appendChild(poweredBy);
+    footerPoweredBy.appendChild(poweredBy);
 }

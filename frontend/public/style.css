@@ -9,17 +9,45 @@ header {
     background-color: #333;
     color: #fff;
     padding: 1rem;
-    text-align: center; /* Center-align text */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap to next line on smaller screens */
+    justify-content: space-between; /* Spacing between left and right sections */
+    align-items: center; /* Center align items vertically */
 }
 
-header img {
-    display: none; /* Hide by default, show only if src is available */
-    width: 50px;
-    height: 50px;
-    margin: 0 1rem;
+.header-left {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    flex: 1; /* Take up full available space */
+    max-width: 35%; /* Adjust maximum width as needed */
+}
+
+.header-right {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    flex: 1; /* Take up full available space */
+    max-width: 65%; /* Adjust maximum width as needed */
+    text-align: right; /* Right-align text on header-right */
+}
+
+.header-left img {
+    height: auto; /* Maintain image aspect ratio */
+    max-width: 100%; /* Ensure image fits container */
+    display: block;
+    margin-right: 1rem;
+    position: relative !important;
+}
+
+.header-right img {
+    height: auto; /* Maintain image aspect ratio */
+    max-width: 100%; /* Ensure image fits container */
+    display: block;
+    margin-right: 1rem;
+}
+
+#hotel-name {
+    font-size: 2rem;
+    margin: 0;
 }
 
 main {
@@ -83,13 +111,25 @@ main {
     font-size: 1.1rem;
 }
 
+.notes {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    color: #555;
+}
+
+.note {
+    margin-bottom: 1rem;
+}
+
 footer {
     background-color: #333;
     color: #fff;
     padding: 1rem;
     display: flex;
     flex-direction: column; /* Arrange children in a column */
-    align-items: center;
+    align-items: center; /* Center align items horizontally */
 }
 
 .owners-container {
@@ -111,9 +151,30 @@ footer {
     font-size: 1.0rem;
 }
 
-#hotel-name {
-    font-size: 50px;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+
+    .header-left,
+    .header-right {
+        max-width: 100%; /* Take full width on smaller screens */
+        text-align: center; /* Center-align text on smaller screens */
+    }
+
+    .header-right {
+        margin-top: 1rem; /* Add space between header sections on smaller screens */
+    }
 }
 
+@media (min-width: 768px) {
+    #hotel-name {
+        font-size: 3rem; /* Increase font size for medium and larger screens */
+    }
+}
+
+@media (min-width: 1200px) {
+    #hotel-name {
+        font-size: 4rem; /* Further increase font size for large screens */
+    }
+}
