@@ -32,7 +32,7 @@
                     .branch(Locality.HSR)
                     .name("Sri Durga 99 Variety Dosa")
                     .cusine(Cusine.SOUTH_INDIAN)
-                    .hotelLogoOpt(Optional.of("durga-ma-trans.png"))
+                    .hotelLogoOpt(Optional.of("99-variety-dosa-vendor-trans.png"))
                     .build();
 
             return generateMenu(hotel);

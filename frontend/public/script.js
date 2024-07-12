@@ -15,34 +15,20 @@ function fetchMenuItems() {
             const hotelNameElement = document.getElementById('hotel-name');
             hotelNameElement.textContent = data.hotel.name;
 
-            // Update hotel logo in the header if data.logo exists
-            //const leftLogo = document.getElementById('title-logo-left');
-            const rightLogo = document.getElementById('title-logo-left');
+            // Update hotel logo in the header if data.hotelLogoOpt
+            const leftLogo = document.getElementById('title-logo-left');
 
-            /*if (data.hotel.hotelLogoOpt) {
+            if (data.hotel.hotelLogoOpt) {
                 leftLogo.src = `${imagePath}/${data.hotel.hotelLogoOpt}`; // Adjust path based on your project structure
                 leftLogo.style.display = 'inline-block'; // Show the logo
-                leftLogo.style.position = 'absolute'; // Position left logo absolutely
-                leftLogo.style.left = '10px'; // Adjust left position as needed
-                leftLogo.style.top = '10px'; // Adjust top position as needed
+                leftLogo.style.position = 'absolute'; // Position right logo absolutely
+                leftLogo.style.right = '10px'; // Adjust right position as needed
+                leftLogo.style.top = '20px'; // Adjust top position as needed
                 leftLogo.style.width = 'auto'; // Adjust width as needed
                 leftLogo.style.height = '200px'; // Adjust height as needed
             }
             else {
                 leftLogo.style.display = 'none'; // Hide the logo if no data.logo
-            }*/
-
-            if (data.dishLogoOpt) {
-                rightLogo.src = `${imagePath}/${data.dishLogoOpt}`; // Adjust path based on your project structure
-                rightLogo.style.display = 'inline-block'; // Show the logo
-                rightLogo.style.position = 'absolute'; // Position right logo absolutely
-                rightLogo.style.right = '10px'; // Adjust right position as needed
-                rightLogo.style.top = '20px'; // Adjust top position as needed
-                rightLogo.style.width = 'auto'; // Adjust width as needed
-                rightLogo.style.height = '200px'; // Adjust height as needed
-            }
-            else {
-                rightLogo.style.display = 'none'; // Hide the logo if no data.logo
             }
 
             const menuItems = data.items;
