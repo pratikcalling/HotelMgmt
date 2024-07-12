@@ -5,6 +5,7 @@ window.onload = function() {
 function fetchMenuItems() {
     const hostname = window.location.hostname; // Replace with your logic to get hostname
     const apiBaseUrl = `http://${hostname}:8080`;
+    const imagePath = `${window.location.href}/../images`;
 
     fetch(`json/menu-response.json`)
     //fetch(`${apiBaseUrl}/menu`)
@@ -19,7 +20,7 @@ function fetchMenuItems() {
             const rightLogo = document.getElementById('title-logo-right');
 
             if (data.hotel.hotelLogoOpt) {
-                leftLogo.src = `./images/${data.hotel.hotelLogoOpt}`; // Adjust path based on your project structure
+                leftLogo.src = `${imagePath}/${data.hotel.hotelLogoOpt}`; // Adjust path based on your project structure
                 leftLogo.style.display = 'inline-block'; // Show the logo
                 leftLogo.style.position = 'absolute'; // Position left logo absolutely
                 leftLogo.style.left = '10px'; // Adjust left position as needed
@@ -32,7 +33,7 @@ function fetchMenuItems() {
             }
 
             if (data.dishLogoOpt) {
-                rightLogo.src = `./images/${data.dishLogoOpt}`; // Adjust path based on your project structure
+                rightLogo.src = `${imagePath}/${data.dishLogoOpt}`; // Adjust path based on your project structure
                 rightLogo.style.display = 'inline-block'; // Show the logo
                 rightLogo.style.position = 'absolute'; // Position right logo absolutely
                 rightLogo.style.right = '10px'; // Adjust right position as needed
