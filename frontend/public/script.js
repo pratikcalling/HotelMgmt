@@ -1,11 +1,12 @@
+const hostname = window.location.hostname; // Replace with your logic to get hostname
+const apiBaseUrl = `http://${hostname}:8080`;
+const imagePath = `${window.location.href}/../images`;
+
 window.onload = function() {
     fetchMenuItems();
 };
 
 function fetchMenuItems() {
-    const hostname = window.location.hostname; // Replace with your logic to get hostname
-    const apiBaseUrl = `http://${hostname}:8080`;
-    const imagePath = `${window.location.href}/../images`;
 
     fetch(`json/menu-response.json`)
     //fetch(`${apiBaseUrl}/menu`)
@@ -106,7 +107,7 @@ function updateOpenGraphMetaTags(data) {
 
     ogTitle.content = `Menu - ${data.hotel.name}`;
     ogDescription.content = 'Check out our delicious menu items...!';
-    ogImage.content = `${window.location.href}/../images/wa/${data.hotel.hotelLogoOpt}`;
+    ogImage.content = `${imagePath}/wa/${data.hotel.hotelLogoOpt}`;
     ogUrl.content = window.location.href;
 }
 
