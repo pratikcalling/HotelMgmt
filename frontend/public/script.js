@@ -31,6 +31,9 @@ function fetchMenuItems() {
                 leftLogo.style.display = 'none'; // Hide the logo if no data.logo
             }
 
+            // Update Open Graph meta tags
+            updateOpenGraphMetaTags(data);
+
             const menuItems = data.items;
             const categories = {};
 
@@ -57,7 +60,7 @@ function fetchMenuItems() {
                     <ul class="category-items show-items"> <!-- Add show-items class here -->
                         ${categories[category].map((item, index) => `
                             <li class="menu-item">
-                                <div class="menu-item-index">${index + 1}. </div>
+                                <div class="menu-item-index">${item.id}. </div>
                                 <div class="menu-item-details">
                                     <div class="menu-item-title">${item.name}</div>
                                     <div class="menu-item-description">${item.description || ''}</div>
@@ -93,6 +96,49 @@ function fetchMenuItems() {
             });
         })
         .catch(error => console.error('Error fetching menu:', error));
+}
+
+function updateOpenGraphMetaTags(data) {
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogImage = document.querySelector('meta[property="og:image"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+
+    if (ogTitle) {
+        ogTitle.content = `Menu of ${data.hotel.name}`;
+    } else {
+        const metaTag = document.createElement('meta');
+        metaTag.setAttribute('property', 'og:title');
+        metaTag.content = `Menu of ${data.hotel.name}`;
+        document.head.appendChild(metaTag);
+    }
+
+    if (ogDescription) {
+        ogDescription.content = 'Check out our delicious menu items.';
+    } else {
+        const metaTag = document.createElement('meta');
+        metaTag.setAttribute('property', 'og:description');
+        metaTag.content = 'Check out our delicious menu items.';
+        document.head.appendChild(metaTag);
+    }
+
+    if (ogImage) {
+        ogImage.content = `${window.location.href}/../images/${data.hotel.hotelLogoOpt}`;
+    } else {
+        const metaTag = document.createElement('meta');
+        metaTag.setAttribute('property', 'og:image');
+        metaTag.content = `${window.location.href}/../images/${data.hotel.hotelLogoOpt}`;
+        document.head.appendChild(metaTag);
+    }
+
+    if (ogUrl) {
+        ogUrl.content = window.location.href;
+    } else {
+        const metaTag = document.createElement('meta');
+        metaTag.setAttribute('property', 'og:url');
+        metaTag.content = window.location.href;
+        document.head.appendChild(metaTag);
+    }
 }
 
 function renderOwners(owners) {
