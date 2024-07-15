@@ -107,7 +107,7 @@ function updateOpenGraphMetaTags(data) {
 
     ogTitle.content = `Menu - ${data.hotel.name}`;
     ogDescription.content = 'Check out our delicious menu items...!';
-    ogImage.content = `${imagePath}/wa2/${data.hotel.hotelLogoOpt}`;
+    ogImage.content = `${imagePath}/wa/${data.hotel.hotelLogoOpt}`;
     ogUrl.content = window.location.href;
 }
 
