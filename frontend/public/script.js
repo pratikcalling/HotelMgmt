@@ -104,17 +104,14 @@ function updateOpenGraphMetaTags(data) {
     metaTag.content = `Menu - ${data.hotel.name}`;
     document.head.appendChild(metaTag);
 
-    metaTag = document.createElement('meta');
     metaTag.setAttribute('property', 'og:description');
     metaTag.content = 'Check out our delicious menu items..!';
     document.head.appendChild(metaTag);
 
-    metaTag = document.createElement('meta');
     metaTag.setAttribute('property', 'og:image');
     metaTag.content = `${window.location.href}/../images/wa/${data.hotel.hotelLogoOpt}`;
     document.head.appendChild(metaTag);
 
-    metaTag = document.createElement('meta');
     metaTag.setAttribute('property', 'og:url');
     metaTag.content = window.location.href;
     document.head.appendChild(metaTag);
