@@ -99,22 +99,15 @@ function fetchMenuItems() {
 }
 
 function updateOpenGraphMetaTags(data) {
-    const metaTag = document.createElement('meta');
-    metaTag.setAttribute('property', 'og:title');
-    metaTag.content = `Menu - ${data.hotel.name}`;
-    document.head.appendChild(metaTag);
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    const ogImage = document.querySelector('meta[property="og:image"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
 
-    metaTag.setAttribute('property', 'og:description');
-    metaTag.content = 'Check out our delicious menu items..!';
-    document.head.appendChild(metaTag);
-
-    metaTag.setAttribute('property', 'og:image');
-    metaTag.content = `${window.location.href}/../images/wa/${data.hotel.hotelLogoOpt}`;
-    document.head.appendChild(metaTag);
-
-    metaTag.setAttribute('property', 'og:url');
-    metaTag.content = window.location.href;
-    document.head.appendChild(metaTag);
+    ogTitle.content = `Menu - ${data.hotel.name}`;
+    ogDescription.content = 'Check out our delicious menu items...!';
+    ogImage.content = `${window.location.href}/../images/wa/${data.hotel.hotelLogoOpt}`;
+    ogUrl.content = window.location.href;
 }
 
 function renderOwners(owners) {
