@@ -83,12 +83,13 @@ main {
     align-items: center;
     padding: 1rem;
     border: 1px solid #ccc;
-    background-color: #fff;
+    background-color: #7dd37d;
 }
 
 .menu-item-index {
     font-weight: bold;
     margin-right: 1rem;
+    color: red;
 }
 
 .menu-item-details {
